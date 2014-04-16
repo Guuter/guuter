@@ -1,0 +1,42 @@
+guuter_dashboard:
+    resource: "@GuuterDashboardBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+guuter_user:
+    resource: "@GuuterUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+guuter_user:
+    resource: "@GuuterUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+guuter_user_security_check:
+    pattern: /login_check
+
+guuter_user_security_logout:
+    pattern: /logout
+
+fos_user_security_login:
+    pattern: /login
+
+fos_user_security_logout:
+    pattern: /logout
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+#fos_user_register:
+#    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+#    prefix: /start
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile

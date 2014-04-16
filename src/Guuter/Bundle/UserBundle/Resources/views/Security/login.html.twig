@@ -1,0 +1,40 @@
+{% extends "::login.html.twig" %}
+
+{% block body %}
+<div id="login">
+    <h1 style="text-align:center">guuter</h1>
+    <form action="{{ path('guuter_user_security_check') }}" method="POST">
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        <div class="ui form segment">
+            {% if error %}
+            <div class="ui icon small message">
+                <i class="doctor icon"></i>
+                <div class="content">
+                    <div class="header">
+                        Need a doctor?
+                    </div>
+                    {{ error|trans({}, 'FOSUserBundle') }}
+                </div>
+            </div>
+            {% endif %}
+            <div class="field">
+              <div class="ui left labeled icon input">
+                <input type="email" id="username" name="_username" placeholder="Email" required>
+                <i class="mail icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left labeled icon input">
+                <input type="password" id="password" name="_password" required>
+                <i class="lock icon"></i>
+              </div>
+            </div>
+            <input type="submit" class="fluid ui button" value="Start your life">
+        </div>
+
+        <p class="scnd-font-color" style="color:#FFF;text-align:center;"><a href="{{ path('fos_user_resetting_request') }}">Forgot password?</a></p>
+    </form>
+</div>
+{% endblock %}

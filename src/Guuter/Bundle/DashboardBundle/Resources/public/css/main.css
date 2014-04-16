@@ -1,0 +1,83 @@
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+
+body {
+    font-family: 'Ubuntu', Helvetica, Arial, 'lucida grande',tahoma,verdana,arial,sans-serif;
+    background: #0191C8;
+    color: #FFF;
+    font-size: 0.8em;
+}
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+}
+
+i.icon {
+    opacity: 1;
+}
+
+a {
+    color: #FFF;
+}
+a:hover {
+    text-decoration: none;
+}
+
+.mypeople {
+    width:400px;
+}
+.mypeople .segment {
+    border: 0!important;
+    box-shadow: none!important;
+}
+.mypeople .segment.title {
+    background-color: #cc324b;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.mypeople .segment.highlight {
+    background-color: #e64c65;
+}
+
+.mypeople .segment.highlight .title {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.mypeople .segment.highlight .name p {
+    margin: 0;
+    font-size: 1.8em;
+    overflow: hidden;
+}
+
+#login {
+    font-family: 'Josefin Sans', sans-serif;
+    width: 500px;
+    margin: auto auto;
+    margin-top: 50px;
+}
+
+#login input[type="submit"] {
+    letter-spacing: 0.2em;
+}
+
+#login .ui.segment {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+#login .icon {
+    line-height: 1.3em;
+    font-size: 1.3em;
+    color: #0191C8;
+    opacity: 1;
+}
+
+#login input {
+    line-height: 1em;
+    font-size: 1.3em;
+    color: #0191C8;
+    font-weight: 400;
+}

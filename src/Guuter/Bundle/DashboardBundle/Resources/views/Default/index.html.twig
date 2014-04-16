@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+Dashboard
+
+<ul>
+    {% for connection in connections %}
+        <li style="margin-top: 2px; margin-bottom: 2px;clear:both; height:60px;">
+            <div style="float:left;background-color:#e64c65;height:60px;width:60px;padding:5px;margin-left:2px;margin-right:2px;">
+                <img style="width:50px;" src="https://avatars3.githubusercontent.com/u/176363?s=460">
+            </div>
+            <div style="float:left;background-color:#e64c65;height:60px;width:200px;padding:5px;margin-left:2px;margin-right:2px;">
+                <p>{{ connection.endNode }}</p>
+            </div>
+            <div style="float:left;background-color:#e64c65;height:60px;width:200px;padding:5px;margin-left:2px;margin-right:2px;">
+                    <p><i class="users icon"></i>{{ connection.name }}</p>
+            </div>
+        </li>
+    {% else %}
+        <li class="ui attached segment highlight" style="margin-top: 2px; margin-bottom: 2px;">No connection yet</li>
+    {% endfor %}
+</ul>
+{% endblock %}
