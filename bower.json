@@ -1,0 +1,8 @@
+{
+    "name": "Guuter",
+    "version": "0.1.0",
+    "strict-ssl": true,
+    "dependencies": {
+        "semantic": "latest"
+    }
+}

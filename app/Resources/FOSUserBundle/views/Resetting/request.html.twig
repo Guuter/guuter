@@ -1,0 +1,24 @@
+{% extends "::resetting.html.twig" %}
+
+{% block body %}
+<div id="login" class="resetting">
+    <h1 style="text-align:center">You forgot you password?</h1>
+
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST">
+
+        <div class="ui form segment">
+            {% if invalid_username is defined %}
+                <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
+            {% endif %}
+            <div class="field">
+              <div class="ui left labeled icon input">
+                <input type="email" id="username" name="username" placeholder="Email" required>
+                <i class="mail icon"></i>
+              </div>
+            </div>
+            <input type="submit" class="fluid ui button" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}">
+        </div>
+    </form>
+
+</div>
+{% endblock %}

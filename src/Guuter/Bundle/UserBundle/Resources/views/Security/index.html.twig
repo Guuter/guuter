@@ -1,0 +1,9 @@
+<h1>Dashboard!</h1>
+
+<h2>My friends</h2>
+{{ dump(friends) }}
+{% for friend in friends %}
+<div>{{ friend.endNode.id }}</div>
+{% else %}
+No friend yet!
+{% endfor %}

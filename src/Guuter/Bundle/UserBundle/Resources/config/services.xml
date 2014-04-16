@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="guuter.user.start.form.type" class="Guuter\Bundle\UserBundle\Form\Type\StartFormType">
+            <tag name="form.type" alias="guuter_user_start" />
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
+
+        <service id="guuter.user.form.handler.start" class="Guuter\Bundle\UserBundle\Form\Handler\StartFormHandler" scope="request" public="false">
+            <argument type="service" id="fos_user.registration.form" />
+            <argument type="service" id="request" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="fos_user.mailer" />
+            <argument type="service" id="fos_user.util.token_generator" />
+            <argument type="service" id="guuter.node.people.manager" />
+        </service>
+
+        <service id="guuter.security.authentication.failure_handler" class="Guuter\Bundle\UserBundle\Security\GuuterAuthenticationFailureHandler" public="false">
+            <tag name="monolog.logger" channel="security" />
+            <argument type="service" id="http_kernel" />
+            <argument type="service" id="security.http_utils" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="guuter.node.people.manager" />
+            <argument type="service" id="guuter.node.personal_attribute.manager" />
+            <argument type="service" id="security.context" />
+            <argument type="collection" /> <!-- Options -->
+            <argument type="service" id="logger" on-invalid="null" />
+        </service>
+
+        <service id="guuter.node.people.manager" class="Guuter\Bundle\UserBundle\Node\PeopleManager">
+            <argument type="service" id="guuter.neo4j.client" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+
+        <service id="guuter.node.connection.manager" class="Guuter\Bundle\UserBundle\Node\ConnectionManager">
+            <argument type="service" id="guuter.node.people.manager" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+
+        <service id="guuter.node.personal_attribute.manager" class="Guuter\Bundle\UserBundle\Node\PersonalAttributeManager">
+            <argument type="service" id="guuter.node.people.manager" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+    </services>
+
+</container>
